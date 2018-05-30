@@ -9,10 +9,20 @@ class Broadcast {
     def translators = [new Group2Translator()]
 
     def broadcast(Map message){
+        def response = []
+
         translators.each { TranslatorIo translators ->
             Map msgToSend = translators.translate(message)
             String  url = translators.getUrl()
-            apiClient.post(url, msgToSend)
+
+            try {
+                apiClient.post(url, msgToSend)
+            }catch (e){
+                response.add([
+                        msg: "Couldn't post message:  ${translators.getClass().getName().toString()}",
+                        error: e.toString()])
+            }
         }
+        response
     }
 }

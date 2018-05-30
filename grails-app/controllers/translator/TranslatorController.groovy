@@ -2,6 +2,7 @@ package translator
 
 import Broadcast.Broadcast
 import Validators.Validator
+import grails.converters.JSON
 
 
 class TranslatorController {
@@ -17,7 +18,7 @@ class TranslatorController {
 
     def broadcast(){
         Validator.validate(params)
-        broadcast.broadcast(params)
-        render "broadcast done"
+        List<Map> response = broadcast.broadcast(params)
+        render response as JSON
     }
 }
