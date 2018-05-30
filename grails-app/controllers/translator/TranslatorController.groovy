@@ -13,7 +13,8 @@ class TranslatorController {
     }
 
     def index(){
-        render "translator"
+        def response = [app: "translator"]
+        render response as JSON
     }
 
     def broadcast(){
