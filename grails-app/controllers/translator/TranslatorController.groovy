@@ -1,14 +1,12 @@
 package translator
 
-import grails.converters.JSON
-
 class TranslatorController {
 
     def ping() {
-        render "pong" as JSON
+        render "pong"
     }
 
     def index(){
-        render "translator" as JSON
+        render "translator"
     }
 }

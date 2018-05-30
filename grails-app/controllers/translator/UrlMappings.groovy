@@ -5,7 +5,7 @@ class UrlMappings {
     static mappings = {
 
         "/"(controller: "translator") {
-            action = [GET: "ping"]
+            action = [GET: "index"]
         }
 
         "/ping"(controller: "translator") {
