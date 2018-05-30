@@ -1,5 +1,6 @@
 package Clients
 
+import grails.converters.JSON
 import grails.plugins.rest.client.RestBuilder
 
 class ApiClient {
